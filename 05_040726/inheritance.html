@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // 상속은 클래스의 선언 코드를 중복해서 작성하지 않도록 함으로써 코드의 생산 효율을 올리는 문법
+      // class 클래스 이름 extends 부모클래스 이름 {}
+
+      //사각형 클래스
+      class Rectangle {
+        constructor(width, height) {
+          this.width = width;
+          this.height = height;
+        }
+
+        // 사각형의 둘레를 구하는 메소드
+        getPerimeter() {
+          return 2 * (this.width + this.height);
+        }
+        // 사각형의 넓이를 구하는 메소드
+        getArea() {
+          return this.width * this.height;
+        }
+      }
+
+      // 정사각형 클래스
+      class Square extends Rectangle {
+        // Square 클래스가 자식 클래스
+        constructor(length) {
+          super(length, length);
+          // 부모의 생성자 함수를 호출하는 코드
+        }
+
+        // getPerimeter() 메소드와 getArea() 메소드를 제거함!
+      }
+
+      // 클래스 사용하기
+      const square = new Square(10, 20);
+      console.log(`정사각형의 둘레:${square.getPerimeter()}`);
+      console.log(`정사각형의 넓이:${square.getArea()}`);
+      // getPerimeter() 메소드와 getArea() 메소드를
+      // 선언하지 않았지만, 상속 받았으므로 사용할 수 있음
+    </script>
+    <title>inheritance</title>
+  </head>
+  <body></body>
+</html>
